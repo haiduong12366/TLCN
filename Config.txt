@@ -1,0 +1,48 @@
+{
+  "name": "mysqla",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "tasks.max": "1",
+    "database.hostname": "mysql",
+    "database.port": "3306",
+    "database.user": "haiduong",
+    "database.password": "haiduong",
+    "database.server.id": "223344",
+    "topic.prefix": "tlcn" ,
+    "database.include.list": "tlcn",
+    "schema.history.internal.kafka.bootstrap.servers": "kafka:9092",  
+    "schema.history.internal.kafka.topic": "schema-changes.tlcn" ,
+    "database.allowPublicKeyRetrieval": "true"
+  }
+}
+======================================================================================================================
+connector.name=delta
+hive.metastore.uri=thrift://192.168.1.11:9083
+hive.s3.aws-access-key=BTSYIyArfjY9zQ6UYoDC
+hive.s3.aws-secret-key=gSTb3X1ZByXE7QxWSqybsL7BcegXXVS7C8bqOzji
+hive.s3.endpoint=http://192.168.1.11:9000
+hive.s3.path-style-access=true
+hive.s3.ssl.enabled=false
+hive.s3select-pushdown.enabled=true
+hive.s3select-pushdown.max-connections=1000
+hive.metastore-cache-maximum-size=100000
+hive.metastore-refresh-interval=10s
+======================================================================================================================
+docker exec -it mysql mysql -h localhost -u root -p tlcn
+
+GRANT ALL PRIVILEGES ON *.* TO 'haiduong'@'%';
+FLUSH PRIVILEGES;
+create table student (id int primary key, name varchar(100));
+insert into student values(1,'Duong');
+
+create table teacher (id int primary key, name varchar(100));
+insert into teacher values(1,'Thuc');
+
+create table subject (id int primary key,name varchar(50),room varchar(10));
+insert into subject values(1,'math','A01');
+insert into subject values(2,'Hoa','A02');
+insert into subject values(3,'Hoa','A03');
+insert into subject values(4,'Ly','A04');
+insert into subject values(5,'van','A01');
+insert into subject values(6,'sinh','A02');
+
