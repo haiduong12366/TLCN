@@ -13,7 +13,8 @@ Silver Layer: Here, the data is cleaned and prepared for analysis, making it rea
 Gold Layer: In this layer, data is reorganized in a warehouse model, making it more convenient for analysis and future machine learning model training.</br>
 
 <h1>Workflow</h1>
- 1. Data has been crawled from web, will become a Json and import to Minio with spark and delta lake working as layer, data from CSV will be imported to Mysql and streaming data to Broze in Minio.
+
+1. Data has been crawled from web, will become a Json and import to Minio with spark and delta lake working as layer, data from CSV will be imported to Mysql and streaming data to Broze in Minio.
 
 2. Data will be processed in Minio
 
